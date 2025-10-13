@@ -6,14 +6,13 @@ export default function AddUser({ onAdd }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  axios.post("http://localhost:3001/users", newUser)
-  .then(res => {
-    alert("Thêm user thành công!");
-    onAdd(); // cập nhật lại danh sách
-    setNewUser({ name: "", email: "" });
-  })
-  .catch(err => console.error(err));
-
+    axios.post("http://localhost:3001/users", newUser)
+      .then(res => {
+        alert("Thêm user thành công!");
+        onAdd();
+        setNewUser({ name: "", email: "" });
+      })
+      .catch(err => console.error(err));
   };
 
   return (
